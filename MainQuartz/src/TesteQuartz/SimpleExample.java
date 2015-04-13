@@ -6,7 +6,7 @@
 package TesteQuartz;
 
 import java.util.Date;
-import static org.quartz.DateBuilder.evenMinuteDate;
+import org.quartz.DateBuilder;
 import static org.quartz.JobBuilder.newJob;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
@@ -31,7 +31,7 @@ public class SimpleExample {
         .build();
         
         // compute a time that is on the next round minute
-        Date runTime = evenMinuteDate(new Date());
+        Date runTime = DateBuilder.evenSecondDate(new Date(5000));
         // Trigger the job to run on the next round minute
         Trigger trigger = newTrigger()
         .withIdentity("trigger1", "group1")
@@ -40,7 +40,7 @@ public class SimpleExample {
         // Tell quartz to schedule the job using our trigger
         sched.scheduleJob(job, trigger);
         sched.start();
-        Thread.sleep(50L * 1000L);
+        Thread.sleep(60L * 1000L);
         sched.shutdown(true);
          } catch (SchedulerException ex) {
             ex.printStackTrace();
