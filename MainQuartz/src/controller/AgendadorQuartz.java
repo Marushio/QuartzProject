@@ -14,7 +14,7 @@ import org.quartz.impl.StdSchedulerFactory;
 public class AgendadorQuartz {
     public void agendarJob(Class<? extends Job> CalssJob,int segundos)throws SchedulerException{
         //InterruptedException
-            System.out.println("Erro ao sdfdfdfde con");
+            
             SchedulerFactory sf = new StdSchedulerFactory();
             Scheduler sched = sf.getScheduler();
             JobDetail job = newJob(CalssJob)

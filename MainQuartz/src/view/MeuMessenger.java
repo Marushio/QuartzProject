@@ -67,8 +67,12 @@ public class MeuMessenger extends javax.swing.JFrame {
         AgendadorQuartz agendadorQuartz = new AgendadorQuartz();
         //Tenta agendar a tarefa para repetir a cada 20 segundos
         try{
+            //Deve -se passar  a clase do job com a extensão .class sem a necessidade de instancia - la 
+            //juntamente com o tempo em segundos para a repetiçãpo do job... 
             agendadorQuartz.agendarJob(JobApagar.class, 20);
+        //SchedulerException erro gerado caso exista problemas com o agendamendo do job    
         }catch(SchedulerException se){
+            //Apresenta o erro e o sua causa 
             System.out.println("Erro ao agendar tarefa, "+se.getStackTrace());
         }
     }
