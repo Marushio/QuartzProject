@@ -43,10 +43,15 @@ public class MensagemDAO {
     public void ApagarMensagens() throws SQLException{
         Connection con = ConnectionFactory.getFirebirdConnection();
         PreparedStatement psmt = null;
-        StringBuffer sql = new StringBuffer();
-            sql.append("delete from messages");
+        try{
+            StringBuffer sql = new StringBuffer();
+            sql.append("delete from mensagem");
             psmt = con.prepareStatement(sql.toString());
-            psmt.execute();        
+            psmt.execute();  
+        }finally{
+            psmt.close();
+            con.close();
+        }
     }
     public ArrayList obterMensagens()throws Exception{
         Connection con = ConnectionFactory.getFirebirdConnection();

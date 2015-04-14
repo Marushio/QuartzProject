@@ -4,9 +4,13 @@
 
 package view;
 import controller.Usuario; 
+import controller.AgendadorQuartz;
+import controller.JobApagar;
 import java.awt.CardLayout;
 //import java.util.List;
 import javax.swing.JPanel;
+import org.quartz.Job;
+import org.quartz.SchedulerException;
 
 /**
  *
@@ -15,7 +19,7 @@ import javax.swing.JPanel;
 public class MeuMessenger extends javax.swing.JFrame {
 
     private static Usuario usuario ;
-
+    
     public  Usuario getUsuario() {
         return usuario;
     }
@@ -28,7 +32,14 @@ public class MeuMessenger extends javax.swing.JFrame {
      * Creates new form MeuMessenger
      */
     public MeuMessenger() {
-         
+        
+        //Cria um job com a funçao de apagar o banco dedados
+        
+        //Agenda o job 
+       
+    
+        
+        
         initComponents();
         //Cria os panes
         this.setLocation(600, 220);
@@ -52,8 +63,14 @@ public class MeuMessenger extends javax.swing.JFrame {
         this.setContentPane(cards);
         this.revalidate();
         this.repaint();
-        
-        
+        //Cria o agendamento no main
+        AgendadorQuartz agendadorQuartz = new AgendadorQuartz();
+        //Tenta agendar a tarefa para repetir a cada 20 segundos
+        try{
+            agendadorQuartz.agendarJob(JobApagar.class, 20);
+        }catch(SchedulerException se){
+            System.out.println("Erro ao agendar tarefa, "+se.getStackTrace());
+        }
     }
 
     /**

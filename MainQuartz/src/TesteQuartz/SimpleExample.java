@@ -1,13 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package TesteQuartz;
 
-import java.util.Date;
 import static org.quartz.CronScheduleBuilder.cronSchedule;
-import org.quartz.DateBuilder;
 import static org.quartz.JobBuilder.newJob;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
@@ -17,10 +10,6 @@ import org.quartz.Trigger;
 import static org.quartz.TriggerBuilder.newTrigger;
 import org.quartz.impl.StdSchedulerFactory;
 
-/**
- *
- * @author Marcio
- */
 public class SimpleExample {
     public static void main(String[] args)  {
          try {
@@ -32,7 +21,7 @@ public class SimpleExample {
         .build();
         int segundos=20;
         // compute a time that is on the next round minute
-       // Date runTime = DateBuilder.evenSecondDate(new Date(5000));
+        // Date runTime = DateBuilder.evenSecondDate(new Date(5000));
         // Trigger the job to run on the next round minute
         Trigger trigger = newTrigger()
                 
