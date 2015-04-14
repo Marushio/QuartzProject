@@ -21,7 +21,7 @@ public class JobApagar implements Job{
             
             mensagemDAO.ApagarMensagens();
         }catch(SQLException sqle){
-            System.out.println("Erro ao se conectar ao banco de dados, 5 "+sqle.getStackTrace());
+            System.out.println("Erro ao se conectar ao banco de dados."+sqle.getStackTrace());
         } 
     }
     
