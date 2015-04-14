@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -38,7 +39,15 @@ public class MensagemDAO {
             psmt.close();
             con.close();
         }
-    }    
+    } 
+    public void ApagarMensagens() throws SQLException{
+        Connection con = ConnectionFactory.getFirebirdConnection();
+        PreparedStatement psmt = null;
+        StringBuffer sql = new StringBuffer();
+            sql.append("delete from messages");
+            psmt = con.prepareStatement(sql.toString());
+            psmt.execute();        
+    }
     public ArrayList obterMensagens()throws Exception{
         Connection con = ConnectionFactory.getFirebirdConnection();
         ResultSet rs = null;
