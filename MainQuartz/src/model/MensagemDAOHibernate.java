@@ -43,7 +43,7 @@ public class MensagemDAOHibernate {
           
         try{
             em.getTransaction().begin();
-            Query q = em.createQuery("delete object(m) from Mensagem as m ");
+            Query q = em.createQuery("delete from Mensagem ");
             q.executeUpdate();
             em.getTransaction().commit();
         }
