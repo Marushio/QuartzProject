@@ -133,7 +133,7 @@ public class TelaNick extends javax.swing.JPanel {
         
        
        
-       System.out.println("FOI AQUI 1");
+       
        try{
             Usuario usuario;
             usuario=telaNickControl.logar(tfNick.getText(),pfSenha.getText());

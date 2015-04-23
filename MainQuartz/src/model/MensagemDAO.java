@@ -19,7 +19,8 @@ import java.util.ArrayList;
  * @author a1320726
  */
 public class MensagemDAO {
-    private UsuarioDAO usuarioDAO;
+   /* private UsuarioDAO usuarioDAO;
+    private UsuarioDAOHibernate usuarioDAOHibernate;
     public void inserir(Mensagem mensagem)throws Exception{
         Connection con = ConnectionFactory.getFirebirdConnection();
         PreparedStatement psmt = null;
@@ -40,6 +41,7 @@ public class MensagemDAO {
             con.close();
         }
     } 
+    
     public void ApagarMensagens() throws SQLException{
         Connection con = ConnectionFactory.getFirebirdConnection();
         PreparedStatement psmt = null;
@@ -60,6 +62,7 @@ public class MensagemDAO {
         String sql = "select * from Mensagem";
         ArrayList mensagens = new ArrayList(); 
         usuarioDAO = new UsuarioDAO();
+        usuarioDAOHibernate =  new UsuarioDAOHibernate();
         try{
             psmt = con.prepareStatement(sql);
             rs = psmt.executeQuery();
@@ -68,7 +71,7 @@ public class MensagemDAO {
                 mensagem =  new Mensagem();
                 mensagem.setDate(rs.getDate("data"));
                 try{
-                    mensagem.setUsuario(usuarioDAO.obterUsuario(rs.getString("nick")));
+                    mensagem.setUsuario(usuarioDAOHibernate.obterUsuario(rs.getString("nick")));
                 }catch(Exception e){
                     System.out.println("Erro ao buscar usuaario");
                 }
@@ -82,5 +85,5 @@ public class MensagemDAO {
        }
     return mensagens;
     }        
-    
+    */
 }

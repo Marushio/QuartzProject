@@ -8,7 +8,7 @@ package controller;
 
 import java.awt.Container;
 import javax.swing.JOptionPane;
-import model.UsuarioDAO;
+import model.UsuarioDAOHibernate;
 import view.MeuMessenger;
 
 /**
@@ -17,11 +17,11 @@ import view.MeuMessenger;
  */
 public class TelaNickController {
     MeuMessenger meuMessenger;
-    UsuarioDAO usuarioDAO;
+    UsuarioDAOHibernate usuarioDAOHibernate;
 
     public TelaNickController() {
         this.meuMessenger = meuMessenger;
-        usuarioDAO=new UsuarioDAO();
+        usuarioDAOHibernate=new UsuarioDAOHibernate();
     }
     
     public Usuario logar(String login,String senha){      
@@ -30,12 +30,13 @@ public class TelaNickController {
        // boolean teste=false;
         try{
             
-            user = usuarioDAO.obterUsuario(login);
+            user = usuarioDAOHibernate.obterUsuario(login);
            
             if(!user.getSenha().equals(senha))
             throw new Exception();
             
         }catch(Exception e ){
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null,"Login Inexistente ou senha errados","Erro",0);
             
    

@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
-import model.MensagemDAO;
+import model.MensagemDAOHibernate;
 
 /**
  *
@@ -15,11 +15,11 @@ public class JobApagar implements Job{
     
     
     public void execute(JobExecutionContext jec) throws JobExecutionException {
-        MensagemDAO mensagemDAO;
-        mensagemDAO = new MensagemDAO();
+        MensagemDAOHibernate mensagemDAOHibernate;
+        mensagemDAOHibernate = new MensagemDAOHibernate();
         try{
             
-            mensagemDAO.ApagarMensagens();
+            mensagemDAOHibernate.ApagarMensagens();
         }catch(SQLException sqle){
             System.out.println("Erro ao se conectar ao banco de dados."+sqle.getStackTrace());
         } 

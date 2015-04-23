@@ -69,7 +69,7 @@ public class MeuMessenger extends javax.swing.JFrame {
         try{
             //Deve -se passar  a clase do job com a extensão .class sem a necessidade de instancia - la 
             //juntamente com o tempo em segundos para a repetiçãpo do job... 
-            agendadorQuartz.agendarJob(JobApagar.class, 20);
+            agendadorQuartz.agendarJob(JobApagar.class, 10);
         //SchedulerException erro gerado caso exista problemas com o agendamendo do job    
         }catch(SchedulerException se){
             //Apresenta o erro e o sua causa 

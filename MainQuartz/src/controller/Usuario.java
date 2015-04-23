@@ -6,11 +6,21 @@
 
 package controller;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+
 /**
  *
  * @author a1320726
  */
+@Entity
+@Table(uniqueConstraints=
+@UniqueConstraint(columnNames = "login"))
 public class Usuario {
+  @Id
   private String login;
 
     public String getSenha() {

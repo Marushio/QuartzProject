@@ -5,15 +5,30 @@
 package controller;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  *
  * @author a1320548
  */
+@Entity
+
 public class Mensagem implements Comparable{
+    @Id
+    @GeneratedValue
+    private int id; 
     
     private String texto;
     private Date date;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "nick")
     private Usuario usuario;
 
     public Usuario getUsuario() {

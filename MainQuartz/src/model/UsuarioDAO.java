@@ -16,7 +16,7 @@ import java.sql.ResultSet;
  * @author a1320726
  */
 public class UsuarioDAO {
-     public void InserirUsuario(Usuario user)throws Exception{
+  /*   public void InserirUsuario(Usuario user)throws Exception{
         Connection con = ConnectionFactory.getFirebirdConnection();
         PreparedStatement psmt = null;
         try{
@@ -55,4 +55,5 @@ public class UsuarioDAO {
        }
     return user;
     }  
+    */
 }
